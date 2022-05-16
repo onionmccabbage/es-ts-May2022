@@ -1,0 +1,66 @@
+// By default, tsc will output ES3 (ancient JavaScript)
+// we can configure tsc:
+// tsc <filename> --target es6
+// a class can implement an interface
+class Snap {
+    // optionally our JavaScript class may take a constructor
+    constructor(snap) {
+        this.albumId = snap.albumId;
+        this.id = snap.id;
+        this.title = snap.title;
+        this.url = snap.url;
+        this.thumbnailUrl = snap.thumbnailUrl;
+    }
+    // here's how we write a method of this class
+    pretty() {
+        return `${this.title}: ${this.url}`;
+    }
+    ;
+}
+// we can extend classes
+class LoRes extends Snap {
+    constructor(snap) {
+        super(snap); // invoke t he constructor from the parent class
+        this.url = this.thumbnailUrl; // only use hte low resolution version of the image
+    }
+}
+let photos = [
+    {
+        "albumId": 1,
+        "id": 1,
+        "title": "accusamus beatae ad facilis cum similique qui sunt",
+        "url": "https://via.placeholder.com/600/92c952",
+        "thumbnailUrl": "https://via.placeholder.com/150/92c952"
+    },
+    {
+        "albumId": 1,
+        "id": 2,
+        "title": "reprehenderit est deserunt velit ipsam",
+        "url": "https://via.placeholder.com/600/771796",
+        "thumbnailUrl": "https://via.placeholder.com/150/771796"
+    },
+    {
+        "albumId": 1,
+        "id": 3,
+        "title": "officia porro iure quia iusto qui ipsa ut modi",
+        "url": "https://via.placeholder.com/600/24f355",
+        "thumbnailUrl": "https://via.placeholder.com/150/24f355"
+    },
+    {
+        "albumId": 1,
+        "id": 4,
+        "title": "culpa odio esse rerum omnis laboriosam voluptate repudiandae",
+        "url": "https://via.placeholder.com/600/d32776",
+        "thumbnailUrl": "https://via.placeholder.com/150/d32776"
+    }
+];
+// when creating class instances we user the 'new' keyword
+const s1 = new Snap(photos[3]);
+let s2 = new Snap({
+    "albumId": 1,
+    "id": 14,
+    "title": "est necessitatibus architecto ut laborum",
+    "url": "https://via.placeholder.com/600/61a65",
+    "thumbnailUrl": "https://via.placeholder.com/150/61a65"
+});
+console.log(s1.pretty());

@@ -1,4 +1,4 @@
-const todos = [
+const todos:ToDo[] = [ // or Array<ToDo>
     {
       "userId": 1,
       "id": 1,
@@ -52,13 +52,13 @@ interface ToDo {
     userId:number
     id:number
     title:string
-    completed:boolean
+    completed:boolean | 'archived'
 }
 
 // consume some ToDo items
 // console.log(typeof (todos)) // object with ONE member called 'todos'
-const job1 = todos[0]
-console.log(job1) // see subtle differences
+const job1:ToDo = todos[0]
+console.log(job1)
 
 const compareJobByDesc = (a:ToDo, b:ToDo) => { // in descending order
     if (a.userId < b.userId) {
@@ -76,5 +76,5 @@ const filterByUserId = (a:ToDo)=>{
     }
 }
 // sort and filter the array
-// console.log(todos.sort(compareJobByDesc))
-console.log(todos.filter(filterByUserId))
+console.log(todos.sort(compareJobByDesc))
+// console.log(todos.filter(filterByUserId))

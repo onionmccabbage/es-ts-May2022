@@ -14,6 +14,7 @@ Get a copy of (some of) the 'todos' array and make sure it is scoped to your cod
 Write an interface to match the types of a 'todo' member
 Use your interface to make the 'todos' array type-safe
 Create some type-safe instances which are derived from individual 'todo' members
+	let todo1:Todo = ...
 
 Optional
 --------

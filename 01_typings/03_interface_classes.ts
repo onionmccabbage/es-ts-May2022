@@ -1,3 +1,6 @@
+// By default, tsc will output ES3 (ancient JavaScript)
+// we can configure tsc:
+// tsc <filename> --target es6
 
 interface Photo {
     albumId     : number
