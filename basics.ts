@@ -26,5 +26,23 @@
     const digits2:(number | string)[] = [9,8,7, "coffee"] // for one data type no round brackets needed
 
     digits.push('time for coffee') // the array remains mutable
+    console.log(digits)
+
+    // functions - we typically data-type the incoming arguments (although default values will infer a type)
+    const fn = (pers_name:string = 'Ethel')=>{
+        // get in the habit of using sting interpolation syntax
+        console.log(`Greetings ${pers_name} one plus two is ${1+2}`)
+    }
+    fn(programmer['name'])
+    // some other ES6+ features
+    console.log(Number.MAX_VALUE)
+
+    // reminder - ECMAScript remains a prototypical language
+    // everything ultimately descends fro mthe Object type
+    const obj1 = Object.create( {} ) // ES will implicity inherit from the Object type
+    const obj2 = Object.create( null ) // we inherit from null
+
+    console.log(obj1)
+    console.log(obj2)
 
 }
