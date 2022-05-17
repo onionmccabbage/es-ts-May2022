@@ -4,5 +4,6 @@ export type Penguin = {
 
 export interface Dog {
     breeds:string[],
-    yearOfBirth:number
+    yearOfBirth:number,
+    legs?:number
 }
