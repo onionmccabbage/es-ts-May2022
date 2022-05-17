@@ -17,4 +17,5 @@ const feathers:Penguin = {breed:'RockHopper', yearOfBirth:1998}
 
 const characters:Animals[] = [gromit, feathers]
 
+console.log(typeof(gromit)) // remember - by the time this code runs there is NO TYPESCRIPT!!!
 console.log(characters)

@@ -6,7 +6,7 @@ const go = (isWorking:boolean):Promise<string | Error>=>{
             if(isWorking){
                 resolve('everything worked out fine')
             } else {
-                reject(new Error('oops it broke'))
+                reject(new Error('something went wrong') ) // NB the reject data type is not being checked agains what we said
             } 
         }, 500 ) // here is the end of the setTimeout
     } )
