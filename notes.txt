@@ -1,0 +1,90 @@
+ECMAScript and Typescript
+=========================
+
+  Toby Dussek - May 16-18
+
+9:30  start
+11:00 coffee (until 11:15)
+12:30 lunch (until 1:30)
+3:00  tea until 3:15
+4:30  end
+
+Monday
+> welcome
+> choose a folder to work in: install NodeJS/npm and install typescript globaly
+  - npm install -g typescript
+  - npm install -g ts-node
+  - may need to npm install types for (e.g.) @angular or @react or custom...
+> Modern ECMAScript
+   - common name JavaScript
+   - also known as ECMAScript, ES, ES3, ES5, ES6 etc
+   - sometimes referred to as ESNext, ES6+
+   - recently ES2020, ES2021... (these are all names for JavaScript)
+
+> it is not a good idea to begin identifiers with a digit
+
+> sometimes it complains 'cannot find console...' - fix with ts-config DOM
+
+> Typescript why and how
+> best pactice declare types in another module and import that
+> default ts output is ES3 we can --target es2020 (or relevant version)
+> tidy way to see html pages - liveserver
+> support for older browsers etc.
+> number data type - whats new
+> classes
+> ways to run and automate
+> begin looking at data sources: JSON etc
+> try a lab exercise
+
+Tuesday
+> where we're at
+> many ways to write functions
+> generics Array<T> 
+> descructuring
+> descruct to prev let item
+> can we do generators using modern function syntax? No, must use 'function*'
+> is TS mainly just for type safety? No - language engine for code completion/introspection
+> types or interface (or hybrid) - mainly aim for interface, then derive other types
+- when/why you would use an Enum, Literal, Type, Interface 
+  (how to choose one over another depending on what you are doing)
+> https://webpack.js.org/guides/typescript/
+> Promises
+> conventions, best practice, preference...
+> what if the API changes - how can we allow the 'rest' of the arguments?
+  it's ok - we can ignore additional arguments from our interface
+> type guards - write logical 'if' when we need to ensure tpyes manually
+> more on tsconfig
+> npm init
+> ReactJS
+> review exercise
+
+Wednesday
+- interface, class, implements, extends....
+- more on classes
+> more on modules and import (module.exports, type='module' old-skool commonJS etc.)
+> ways to write functions
+> Observables and RxJS
+> Array<T> and T[] are identical - it's a style choice
+    - we use Array<T> when being generic in functions
+- Real example: back-end response has a structure, inc. a data array object[]
+    e.g. 'playableItem' has LOADS of properties 
+    - do we need to type the whole structure?
+> final lab 
+- where to go next 
+  https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html
+- end of course feedback
+  https://frameworktraining.typeform.com/to/QT1zVCdv
+
+
+
+
+
+
+
+
+
+
+
+- see https://github.com/gdejanovic/star-wars-api?ref=reactjsexample.com
+
+ 
