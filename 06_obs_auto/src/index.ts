@@ -40,7 +40,7 @@ const categories:string[] = ['people', 'planets', 'species', 'starships', 'vehic
 const searchBox = document.querySelector('#input'); //-> <input>
 const results:HTMLElement = document.querySelector('#suggestions');  //-> <ul>
 const notEmpty = (input: string) => !!input && input.trim().length > 0;
-const suggest = (arr: any, query: any) => {
+const suggest = (arr: string[], query: string) => {
     return arr.filter((item: any) => {
         return query.length > 0 && item.startsWith(query);
     })
@@ -50,12 +50,12 @@ const cat$ = Rx.Observable.fromEvent(searchBox, 'keyup')
 cat$.debounceTime(700) // give the user 700 ms between checks
     .pluck('target', 'value')
     .filter(notEmpty)
-    .do(query => console.log(`Querying for ${query}...`))
+    .do((query:string) => console.log(`Querying for ${query}...`))
     // .map(query => sendRequest(testData, query))
-    .map(query => suggest(categories, query))
-    .forEach(result => { // this is our subscriber
+    .map( (query:string) => suggest(categories, query))
+    .forEach((result:string[]) => { // this is our subscriber
         clearResults(results)
-        appendResults(result, results)
+        appendResults(result.toString(), results)
     })
 
 const appendResults = (results: string, container: HTMLElement) => {
