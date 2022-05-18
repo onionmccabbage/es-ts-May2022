@@ -22,16 +22,51 @@ keyup$
         const k = String.fromCharCode(keyCode) //convert the key code nubmer into an actual character
         console.log(`user typed ${k} `)
         // write the code to the web page
-        clearResults(r)
+        // clearResults(r)
         r.innerHTML += `<span>${k}</span>`
     } )
 
+// we can have many subscribers
+// keyup$.subscribe( ()=>{} )
+
 const clearResults = (container:HTMLElement)=>{ // classic way to clear down any existing HTML content
-    console.log('clearing results')
     while(container.childElementCount > 0) {
         container.removeChild(container.firstChild)
     }
 }
+
+// the user might want one of the following categories
+const categories:string[] = ['people', 'planets', 'species', 'starships', 'vehicles']
+const searchBox = document.querySelector('#input'); //-> <input>
+const results:HTMLElement = document.querySelector('#suggestions');  //-> <ul>
+const notEmpty = (input: string) => !!input && input.trim().length > 0;
+const suggest = (arr: any, query: any) => {
+    return arr.filter((item: any) => {
+        return query.length > 0 && item.startsWith(query);
+    })
+}
+const cat$ = Rx.Observable.fromEvent(searchBox, 'keyup')
+
+cat$.debounceTime(700) // give the user 700 ms between checks
+    .pluck('target', 'value')
+    .filter(notEmpty)
+    .do(query => console.log(`Querying for ${query}...`))
+    // .map(query => sendRequest(testData, query))
+    .map(query => suggest(categories, query))
+    .forEach(result => { // this is our subscriber
+        clearResults(results)
+        appendResults(result, results)
+    })
+
+const appendResults = (results: string, container: HTMLElement) => {
+    for (const result of results) {
+        const li = document.createElement('li')
+        const text = document.createTextNode(result)
+        li.appendChild(text)
+        container.appendChild(li)
+    }
+}
+
 
 // when the last subsriber un-subscribes, the Observable is destroyed
 // 'hot' observables will give the entire history to new subscribers
